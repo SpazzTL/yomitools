@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../css/options.css">
     <script src="../scripts/ImportParser.js" defer></script>
     <script src="../scripts/WordListHandler.js" defer></script>
+    <script src="../scripts/OptionsHandler.js" defer></script> <!-- New script -->
   </head>
   <body>
     <form id="upload-form">
@@ -19,6 +20,18 @@
 
     <!-- Button to view the saved words (for testing) -->
     <button type="submit" id="check-saved">Check Saved Collection</button>
+
+    <!-- Highlighting Settings -->
+    <h3>Highlight Settings</h3>
+    <div>
+      <label for="highlight-color">Highlight Color:</label>
+      <input type="color" id="highlight-color" value="#ffff00"> <!-- Default yellow -->
+    </div>
+    <div>
+      <label for="enable-highlight">Enable Highlighting:</label>
+      <input type="checkbox" id="enable-highlight" checked>
+    </div>
+    <button type="submit" id="save-settings">Save Settings</button>
 
     <!-- Word Browser Panel -->
     <div id="word-panel">
