@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Multilingual Scanner</title>
+    <link rel="stylesheet" href="../css/options.css">
+    <script src="../scripts/ImportParser.js" defer></script>
+    <script src="../scripts/WordListHandler.js" defer></script>
+  </head>
+  <body>
+    <form id="upload-form">
+      <label for="file-upload">Upload Word Collection</label>
+      <input type="file" id="file-upload" accept=".colpkg,.apkg,.txt">
+      <button type="submit" id="upload-btn">Upload Collection</button>
+    </form>
+
+    <!-- Button to manually reset the collection -->
+    <button type="submit" id="reset-btn">Reset Word Collection</button>
+
+    <!-- Button to view the saved words (for testing) -->
+    <button type="submit" id="check-saved">Check Saved Collection</button>
+
+    <!-- Word Browser Panel -->
+    <div id="word-panel">
+      <h3>Saved Word Collection</h3>
+      <div id="word-list">
+        <!-- List of words will be dynamically inserted here -->
+      </div>
+    </div>
+  </body>
+</html>
