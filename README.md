@@ -10,9 +10,11 @@ Highlights and Outline can "stack" <br />
 Horrible code from rookie coder<br />
 
 # Future / In-Progress  Plans:
-Complete Rewrite to support better text scanning (Planning)
-Conjugation detection (Planning)
-Known word detector/analyser (Planning)
-Autodetect when words are added to anki / mined with yomitan (If Possible)
+Complete Rewrite to support better text scanning (Planning)<br />
+Conjugation detection (Planning)<br />
+Known word detector/analyser (Planning)<br />
+Autodetect when words are added to anki / mined with yomitan (If Possible)<br />
+Make contribution possible, and code legible. (Planning) <br />
 
-Other QOL Changes (Planning)
+Other QOL Changes (Planning)<br />
+<br />
