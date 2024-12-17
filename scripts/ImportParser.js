@@ -49,12 +49,15 @@ document.getElementById('upload-form').addEventListener('submit', function (even
   
   // Function to parse the .txt file, extracting only the first word from each line
   function parseTextFile(content) {
-    // Split content by newline, trim whitespace, and then split each line into words and take the first one
-    const words = content.split('\n')
-                          .map(line => line.trim().split(/\s+/)[0]) // Split by spaces and take the first word
-                          .filter(word => word); // Filter out empty entries
-                          
-    
+    const words = content.split('\n') // Split content into lines
+                         .map(line => line.trim()) // Remove whitespace from each line
+                         .filter(line => line && !line.startsWith('#')) // Ignore empty lines and comments
+                         .map(line => {
+                            const fields = line.split('\t'); // Split line into fields using tabs
+                            return fields[0] ? fields[0].trim() : null; // Take the first field if it exists
+                         })
+                         .filter(word => word); // Remove null or undefined values
+  
     return words;
   }
   
