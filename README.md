@@ -9,3 +9,10 @@ Highlights partial matches <br />
 Highlights and Outline can "stack" <br />
 Horrible code from rookie coder<br />
 
+# Future / In-Progress  Plans:
+Complete Rewrite to support better text scanning (Planning)
+Conjugation detection (Planning)
+Known word detector/analyser (Planning)
+Autodetect when words are added to anki / mined with yomitan (If Possible)
+
+Other QOL Changes (Planning)
