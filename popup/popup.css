@@ -8,35 +8,39 @@
 /* Body of the popup */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7fc;
+    background-color: #f4f7fc; /* Light mode background */
+    color: #333; /* Light mode text color */
     width: 250px;
     padding: 20px;
     margin: 0;
 }
 
-/* Container for the popup content */
-.popup-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+/* Dark Mode */
+[data-theme="dark"] {
+    background-color: #2e2e3e; /* Dark background */
+    color: #e0e0e0; /* Light text color */
 }
 
-/* Header */
-h1 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 15px;
-    font-weight: 600;
+[data-theme="dark"] .popup-container {
+    background-color: #3a3a4a; /* Darker container */
+    border: 1px solid #555; /* Dark border */
 }
 
-/* Description text */
-p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 20px;
-    line-height: 1.5;
+[data-theme="dark"] h1 {
+    color: #f4f4f9; /* Light text color for heading */
+}
+
+[data-theme="dark"] p {
+    color: #ccc; /* Light text color for paragraph */
+}
+
+[data-theme="dark"] button {
+    background-color: #6c757d; /* Darker button */
+    color: white;
+}
+
+[data-theme="dark"] button:hover {
+    background-color: #5a6268; /* Darker hover effect */
 }
 
 /* Button styles */

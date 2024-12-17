@@ -1,97 +1,86 @@
-/* General body styling */
+/* Default (Light) Theme */
+:root {
+  --bg-color: #f4f4f9;
+  --text-color: #333;
+  --container-bg: white;
+  --button-bg: #4caf50;
+  --button-hover-bg: #45a049;
+  --panel-bg: #edf2f7;
+  --border-color: #ccc;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg-color: #1e1e2e;
+  --text-color: #e0e0e0;
+  --container-bg: #2e2e3e;
+  --button-bg: #6c757d;
+  --button-hover-bg: #5a6268;
+  --panel-bg: #3a3a4a;
+  --border-color: #555;
+}
+
+/* General Styles */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-  color: #333;
-  padding: 20px;
-}
-
-/* Form styling */
-form {
-  margin-bottom: 20px;
-}
-
-form label {
-  font-size: 16px;
-  margin-right: 10px;
-}
-
-form input, form button {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
   padding: 10px;
-  margin-top: 10px;
+}
+
+h3 {
   margin-bottom: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
 }
 
-form input[type="file"] {
-  padding: 5px;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--container-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-form button {
-  background-color: #4CAF50;
-  color: white;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #45a049;
-}
-
-/* Button styling */
 button {
-  padding: 10px 15px;
-  background-color: #f44336;
-  color: white;
+  margin: 5px 0;
+  padding: 8px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  background-color: var(--button-bg);
+  color: white;
   cursor: pointer;
-  margin-top: 10px;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background-color: #d32f2f;
+  background-color: var(--button-hover-bg);
 }
 
-/* Word browser panel */
 #word-panel {
-  margin-top: 30px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#word-panel h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #333;
-  text-align: center;
+  background: var(--panel-bg);
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
 }
 
 #word-list {
-  max-height: 300px;
+  height: 150px;
   overflow-y: auto;
-  border-top: 1px solid #ddd;
-  padding-top: 10px;
+  background: var(--container-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 10px;
 }
 
-#word-list div {
-  padding: 5px;
-  border-bottom: 1px solid #eee;
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-#word-list div:last-child {
-  border-bottom: none;
-}
-
-#word-list div:hover {
-  background-color: #f5f5f5;
+.dark-mode-toggle input {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
 }
