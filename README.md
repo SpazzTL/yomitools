@@ -14,6 +14,7 @@ Horrible code from rookie coder<br />
 Future and In-Progress Plans/Ideas, sorted into sub-headings and annotated with current status.
 ## Rewrite
 Complete Rewrite to support better text scanning (Planning)<br />
+--Follow Progress on Refactor Branch
 ## Text Parsing
 Conjugation detection (Planning)<br />
 ---Example: 읽고 (읽다 -고)  <br />
