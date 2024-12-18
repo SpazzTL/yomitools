@@ -1,16 +1,14 @@
-console.log("Background Init")
-
-//Dark Mode INIT
-//Only if not yet set to preference
+// Dark Mode INIT
+// Only if not yet set to preference
 browser.storage.local.get(['theme'])
     .then(data => {
-        console.log("Found a theme")
+        // console.log("Found a theme")
         browser.storage.local.set({ theme: 'dark' });
-})
+});
 
 
 
-//Anki Connect PLACEHOLDER:
+//Anki Connect Sender...
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "invoke") {
         const url = "http://127.0.0.1:8765";
@@ -20,7 +18,7 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             params: message.data.params
         });
 
-        console.log("Background script: Sending request to AnkiConnect");
+        //console.log("Background script: Sending request to AnkiConnect");
 
         fetch(url, {
             method: "POST",
@@ -34,7 +32,7 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 return response.json();
             })
             .then(data => {
-                console.log("Background script: Response received", data);
+                //console.log("Background script: Response received", data);
                 sendResponse({ success: true, data: data });
             })
             .catch(error => {

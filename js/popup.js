@@ -1,4 +1,8 @@
+import { AnkiConnect } from "./comm/ankiconnect.js";
+const anki = new AnkiConnect()
+
 document.addEventListener('DOMContentLoaded', () => {
+   
     //console.log("DOM fully loaded");
 
     // Apply theme
@@ -23,11 +27,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const ankiStatusElement = document.getElementById('ankiStatus');
     const text = ankiStatusElement.textContent.trim();
     
-    if (true){//AnkiConnectStatus Placeholder 
-        ankiStatusElement.textContent = "Anki is not connected!";
-    }
-    else {
-        ankiStatusElement.textContent = "Anki is connected!";
-    }
- 
+    
+    // Call isConnected and handle the Promise
+    anki.isConnected()
+    .then(isConnected => {
+        console.log("Anki connected = " + isConnected);
+        if (isConnected) {
+            ankiStatusElement.textContent = "Anki is connected!";
+        } else {
+            ankiStatusElement.textContent = "Anki is not connected!";
+        }
+    })
+    .catch(error => {
+        console.error('Failed to check Anki connection:', error);
+        ankiStatusElement.textContent = "Error checking Anki connection!";
+    });
 });
+

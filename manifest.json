@@ -7,8 +7,9 @@
       "48": "images/yomitools-48.png"
   },
 
+
   "background": {
-    "scripts": ["js/background.js"]
+    "scripts": ["../js/background.js"]
   },
 
   "action": {
