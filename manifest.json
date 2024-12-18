@@ -2,15 +2,19 @@
   "manifest_version": 3,
   "name": "yomitools",
   "version": "1",
-  "description": "A multilingual language learning helper. Designed primarily with reading in mind",
+  "description": "A multilingual language immersion helper. ",
   "icons": {
-      "48": "icons/border-48.png"
+      "48": "images/yomitools-48.png"
+  },
+
+  "background": {
+    "scripts": ["js/background.js"]
   },
 
   "action": {
-    "default_icon": "icons/border-48.png",
-    "default_title": "MultiLingual Scanner",
-    "default_popup": "popup/popup.html"
+    "default_icon": "images/yomitools-48.png",
+    "default_title": "yomitools",
+    "default_popup": "popup.html"
   },
 
   "minimum_chrome_version": "102.0.0.0",
@@ -33,11 +37,11 @@
         "<all_urls>"
     ],
     "content_security_policy": {
-      "extension_pages": "default-src 'self'; script-src 'self'; img-src blob: 'self'; style-src 'self' 'unsafe-inline'; media-src *; connect-src *"
+      "extension_pages": "default-src 'self'; script-src 'self'; img-src blob: 'self'; style-src 'self'; media-src *; connect-src *"
   },
   "browser_specific_settings": {
     "gecko": {
-        "id": "{6b733b82-9261-47ee-a595-2dda294a4d08}",
+        "id": "{4cfe7c39-95dd-46c5-bbe7-1dcf92ac6a08}",
         "strict_min_version": "115.0"
     },
     "gecko_android": {

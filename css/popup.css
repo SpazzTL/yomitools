@@ -1,0 +1,87 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body of the popup */
+body {
+    font-family: 'Segoe UI';
+    background-color: #fddcf3; /* Light mode background */
+    color: #333; /* Light mode text color */
+    width: 250px;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+    background-color: #2e2e3e; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+}
+
+[data-theme="dark"] .popup-container {
+    background-color: #2e2e3e; /* Darker container */
+    
+}
+
+[data-theme="dark"] h1 {
+    color: #f4f4f9; /* Light text color for heading */
+}
+
+[data-theme="dark"] p {
+    color: #ccc; /* Light text color for paragraph */
+}
+
+[data-theme="dark"] button {
+    background-color: #6c757d; /* Darker button */
+    color: white;
+}
+
+[data-theme="dark"] button:hover {
+    background-color: #5a6268; /* Darker hover effect */
+}
+
+/* Button styles */
+button {
+    background-color: #af39a5;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #7a3875;
+}
+
+/* Button focus */
+button:focus {
+    outline: none;
+    background-color: #50234c;
+    
+}
+
+/* Optional styling for better spacing and alignment */
+@media screen and (max-width: 300px) {
+    body {
+        width: 180px;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    button {
+        padding: 10px 15px;
+    }
+}
