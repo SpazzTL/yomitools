@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     // console.log("Loaded Settings Script")
+
     // DOM Elements
     const darkModeSwitch = document.getElementById("dark-mode-switch");
   
-     // --- Dark Mode Toggle ---
+    
+    // --- Dark Mode Toggle ---
   darkModeSwitch.addEventListener('change', () => {
     // console.log("Click Event Found")
     if (darkModeSwitch.checked) {
@@ -26,5 +28,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
+    
+    //Collapsible
+    const collapsibles = document.querySelectorAll('.collapsible');
+
+    collapsibles.forEach((button) => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+            button.setAttribute('aria-expanded', !isExpanded);
+            content.classList.toggle('active');
+        });
+    });
+
+
+    // Apply theme
+    browser.storage.local.get(['theme'])
+        .then(data => {
+            //console.log("Theme found as:", data.theme);
+            if (data.theme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+            } else {
+                document.body.setAttribute('data-theme', 'light');
+            }
+        })
+    .catch(err => console.error('Error loading theme:', err)); //Logging doesn't seem to work, more of a hope
 
 });

@@ -1,4 +1,28 @@
-/* Basic reset */
+:root {
+    /* Light Mode Variables */
+    --bg-color: #fddcf3; /* Light background */
+    --text-color: #333; /* Light text */
+    --container-bg-color: #ffffff; /* Light container background */
+    --button-bg-color: #af39a5; /* Button background */
+    --button-hover-bg-color: #7a3875; /* Button hover background */
+    --button-focus-bg-color: #50234c; /* Button focus background */
+    --button-text-color: white; /* Button text */
+    --border-radius: 8px; /* Border radius */
+    --font-family: 'Segoe UI', sans-serif;
+    --font-size: 14px;
+}
+
+[data-theme="dark"] {
+    /* Override variables for dark mode */
+    --bg-color: #363034; /* Dark background */
+    --text-color: #eee9e9; /* Light text */
+    --container-bg-color: rgb(99, 90, 98); /* Darker container background */
+    --button-bg-color: rgb(151, 108, 148); /* Darker button background */
+    --button-hover-bg-color: rgb(165, 126, 162); /* Darker hover background */
+    --button-focus-bg-color: rgb(192, 176, 191); /* Darker focus background */
+}
+
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,74 +31,77 @@
 
 /* Body of the popup */
 body {
-    font-family: 'Segoe UI';
-    background-color: #fddcf3; /* Light mode background */
-    color: #333; /* Light mode text color */
-    width: 250px;
-    padding: 20px;
-    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    width: 200px; /* Compact width */
+    height: 240px; /* Compact height */
+    padding: 15px; /* Slightly reduced padding */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Dark Mode */
-[data-theme="dark"] {
-    background-color: #2e2e3e; /* Dark background */
-    color: #e0e0e0; /* Light text color */
+/* Popup Container */
+.popup-container {
+    background-color: var(--container-bg-color);
+    border-radius: var(--border-radius);
+    padding: 15px; /* Reduced padding for compactness */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
-[data-theme="dark"] .popup-container {
-    background-color: #2e2e3e; /* Darker container */
-    
+/* Heading Styles */
+h1 {
+    color: var(--text-color);
+    font-size: 16px; /* Slightly smaller heading */
+    margin-bottom: 10px;
+    text-align: center;
 }
 
-[data-theme="dark"] h1 {
-    color: #f4f4f9; /* Light text color for heading */
+/* Paragraph Styles */
+p {
+    color: var(--text-color);
+    font-size: 13px; /* Reduced text size for compact design */
+    margin-bottom: 10px;
+    text-align: center;
 }
 
-[data-theme="dark"] p {
-    color: #ccc; /* Light text color for paragraph */
-}
-
-[data-theme="dark"] button {
-    background-color: #6c757d; /* Darker button */
-    color: white;
-}
-
-[data-theme="dark"] button:hover {
-    background-color: #5a6268; /* Darker hover effect */
-}
-
-/* Button styles */
+/* Button Styles */
 button {
-    background-color: #af39a5;
-    color: white;
-    padding: 12px 20px;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: 10px 15px; /* Smaller button padding */
     border: none;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
+    font-size: 13px; /* Slightly smaller font size */
     cursor: pointer;
-    font-size: 14px;
     transition: background-color 0.3s ease;
     width: 100%;
 }
 
 button:hover {
-    background-color: #7a3875;
+    background-color: var(--button-hover-bg-color);
 }
 
-/* Button focus */
 button:focus {
     outline: none;
-    background-color: #50234c;
-    
+    background-color: var(--button-focus-bg-color);
 }
 
-/* Optional styling for better spacing and alignment */
-@media screen and (max-width: 300px) {
+/* Responsive Design */
+@media screen and (max-width: 200px) {
     body {
         width: 180px;
+        height: auto; /* Allow height adjustment for small screens */
     }
 
     h1 {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     p {
@@ -82,6 +109,6 @@ button:focus {
     }
 
     button {
-        padding: 10px 15px;
+        padding: 8px 12px;
     }
 }

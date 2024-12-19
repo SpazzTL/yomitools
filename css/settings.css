@@ -1,0 +1,150 @@
+:root {
+    /*Light Mode Default Var */
+    --bg-color: #fddcf3;
+    --text-color: #1f1c1c;;
+
+    --button-bg-color:rgb(151, 108, 148);
+    --collapse-bg-button-color:rgb(192, 153, 189);
+
+    --button-text-color:#1f1c1c;
+    --collapse-text-button-color:#1f1c1c;
+    
+    --border-radius-px: 8px;
+    --button-border-radius-px: 4px;
+    --collapse-button-border-radius-px: 8px;
+    
+    --bottom-right-border-radius-px: 4px;
+    --bottom-left-border-radius-px: 4px;
+    --top-right-border-radius-px: 4px;
+    --top-left-border-radius-px: 4px;
+
+    --font:'Segoe UI', sans-serif;
+}
+
+[data-theme="dark"] {
+    /* Override variables for dark mode */
+    --bg-color: #363034;
+    --text-color: #d4c9c9;;
+
+    --button-bg-color:rgb(99, 90, 98);
+    --collapse-bg-button-color:rgb(99, 79, 97);
+
+    --button-text-color:#d4c9c9;
+    --collapse-text-button-color:#d4c9c9;
+    
+    --border-radius-px: 8px;
+    --button-border-radius-px: 4px;
+    --collapse-button-border-radius-px: 8px;
+    
+    --bottom-right-border-radius-px: 4px;
+    --bottom-left-border-radius-px: 4px;
+    --top-right-border-radius-px: 4px;
+    --top-left-border-radius-px: 4px;
+
+    --font:'Segoe UI', sans-serif;
+}
+
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+/* Body of settings */
+body {
+    font-family: var(--font);
+    background-color: var(--bg-color); /* Light mode background */
+    color: var(--text-color); /* Light mode text color */
+    width: 500px;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Heading */
+.Heading h1 {
+    font-family: var(--font);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+/* Collapsible Container */
+.collapsible-container {
+    margin-bottom: 20px;
+}
+/* Button */
+.button {
+    font-family: var(--font);
+    width: 49%;
+    background-color: var(--button-bg-color); /* Blends with content */
+    color: var(--button-text-color);
+    padding: 8px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    border: none; /* Remove the border */
+    border-top-left-radius: var(--button-border-radius-px);
+    border-top-right-radius: var(--button-border-radius-px);
+    border-bottom-left-radius: var(--button-border-radius-px);
+    border-bottom-right-radius: var(--button-border-radius-px);
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for button */
+}
+
+/* Collapsible Button */
+.collapsible {
+    font-family: var(--font);
+    width: 100%;
+    background-color: var(--collapse-bg-button-color); /* Blends with content */
+    color: var(--collapse-text-button-color);
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    border: none; /* Remove the border */
+    border-top-left-radius: var(--collapse-button-border-radius-px);
+    border-top-right-radius: var(--collapse-button-border-radius-px);
+    border-bottom-left-radius: var(--collapse-button-border-radius-px);
+    border-bottom-right-radius: var(--collapse-button-border-radius-px);
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for button */
+}
+
+.collapsible:hover {
+    background-color: #ececec; /* Light hover effect */
+}
+
+/* Collapsible Content */
+.content {
+    font-family: var(--font);
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    transition: max-height 0.2s ease, padding 0.2s ease;
+    background-color: var(--collapse-bg-button-color); /* Matches button color */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow extends below content */
+
+    color: var(--collapse-text-button-color);
+}
+
+.content.active {
+    max-height: 200px; /* Adjust based on content */
+    padding: 15px;
+}
+
+/* Content Label */
+.content label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--collapse-text-button-color);
+}

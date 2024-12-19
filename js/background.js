@@ -3,7 +3,7 @@
 browser.storage.local.get(['theme'])
     .then(data => {
         // console.log("Found a theme")
-        browser.storage.local.set({ theme: 'dark' });
+        browser.storage.local.set({ theme: 'light' });
 });
 
 

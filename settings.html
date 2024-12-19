@@ -3,17 +3,73 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/settings.css"> <!-- CSS Link -->
     <title>yomitools settings</title>
   </head>
-  <body>
-        <!-- Heading -->
-        <div class="Heading"><h1> Settings</h1> </div>
 
-        <!-- Dark Mode Toggle -->
-        <div class="dark-mode-toggle">
-        <label for="dark-mode-switch">Dark Mode</label>
-        <input type="checkbox" id="dark-mode-switch" checked>
-        </div>
-        <script src="js/settings.js"></script>
+  <body>
+
+   <!--Scripts -->
+    <script src="../js/settings.js"></script>
+
+
+    <!-- Heading -->
+    <div class="Heading"><h1> Settings</h1> </div>
+    <br>
+
+    <!-- Collapsible Theme Settings -->
+    <div class="collapsible-container">
+      <button type="button" class="collapsible" aria-expanded="false">Theme Settings</button>
+      <div class="content">
+          <label for="dark-mode-switch">Dark Mode</label>
+          <input type="checkbox" id="dark-mode-switch" checked>
+      </div>
+    </div>
+
+    <!-- Collapsible AnkiConnect Settings -->
+    <div class="collapsible-container">
+      <button type="button" class="collapsible" aria-expanded="false">AnkiConnect Settings</button>
+      <div class="content">
+          <label for="ankiconnect-enabled-switch">Enable AnkiConnect </label>
+          <input type="checkbox" id="ankiconnect-enabled-switch" checked>
+      </div>
+    </div>
+    <!-- Collapsible Bookmark Settings -->
+    <div class="collapsible-container">
+      <button type="button" class="collapsible" aria-expanded="false">Bookmark Settings</button>
+      <div class="content">
+          <p> Implement... </p>
+      </div>
+    </div>
+    <!-- Collapsible Text Analysis Settings -->
+    <div class="collapsible-container">
+      <button type="button" class="collapsible" aria-expanded="false">Text Analysis Settings</button>
+      <div class="content">
+          <p> Implement... </p>
+      </div>
+    </div>
+    <!-- Collapsible Text Scanning Settings -->
+    <div class="collapsible-container">
+      <button type="button" class="collapsible" aria-expanded="false">Text Scanning Settings</button>
+      <div class="content">
+          <p> Implement... </p>
+      </div>
+    </div>
+    <!-- Collapsible Text Highlighting Settings -->
+    <div class="collapsible-container">
+      <button type="button" class="collapsible" aria-expanded="false">Text Highlighting Settings</button>
+      <div class="content">
+          <p> Implement... </p>
+      </div>
+    </div>
+    <!-- Collapsible Advanced Settings -->
+    <div class="collapsible-container">
+      <button type="button" class="collapsible" aria-expanded="false">Advanced Settings</button>
+      <div class="content">
+          <p> Implement... </p>
+      </div>
+    </div>
+    <button type="button" class="button">Export Settings</button>
+    <button type="button" class="button">Import Settings</button>
   </body>
 </html>
