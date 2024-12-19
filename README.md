@@ -13,7 +13,7 @@ Horrible code from rookie coder<br />
 # Future / In-Progress  Plans:
 Future and In-Progress Plans/Ideas, sorted into sub-headings and annotated with current status.
 ## Rewrite
-Complete Rewrite to support better text scanning (Planning)<br />
+Complete Rewrite to support better text scanning (In-Progress)<br />
 --Follow Progress on Refactor Branch
 ## Text Parsing
 Conjugation detection (Planning)<br />
@@ -23,7 +23,7 @@ Japanese Furigana Detection / Korean Hanja Detection(Planning)<br />
 Known word detector/analyser (Planning)<br />
 ## Other
 Autodetect when words are added to anki / mined with yomitan (If Possible)<br />
-Make contribution possible, and code legible. (Planning) <br />
+Make contribution possible, and code legible. (In-Progress) <br />
 
-Other QOL Changes (Planning)<br />
+Other QOL Changes (In-Progress)<br />
 <br />
