@@ -1,0 +1,55 @@
+File Structure:
+
+-root
+  |--css // Stores CSS Styling Files
+  |--data // Stores Json Files
+  |--doc { YOU ARE HERE } // Stores Documentation Files
+  |--images // Stores Icons and other image Files
+  |--js // Stores javascript files
+     |--comm // Stores javascript files related to server communication
+     |--core // Stores javascript files to be imported and re-used
+ html files / ALL html files
+ manifest // Manifest.json
+
+
+ css Directory:
+
+    popup.css: This file contains all the styling info for the popup.js
+    settings.css: This file contains all the styling info for settings.js
+    Location: The css folder is located in the root of the project and is used to store all the CSS styling files for the extension.
+
+data Directory:
+
+   //nothing yet\\
+    Location: The data folder is located in the root of the project and contains JSON files used for configuration and data storage.
+
+doc Directory:
+
+    documentation.txt: this file
+    Location: The doc folder is located in the root of the project and is used to store documentation and related files.
+
+js Directory:
+
+    comm Subdirectory:
+        ankiconnect.js: Contains AnkiConnect Class used to communicate with anki. {Requries Background.js}
+        Location: The comm folder is located within the js folder and contains all files related to server communication.
+    core Subdirectory:
+        utils.js: A utility library with common helper functions used throughout the extension.
+         Location: The core folder is located within the js folder and stores reusable JavaScript code for core functionality.
+
+    settings.js: Contains scripting logic and scripting
+    popup.js: Contains popup logic and scripting
+    background.js: Handles ankiconnect communication 
+
+       
+
+html files Directory:
+
+    popup.html: The HTML file that defines the structure and content of the extension’s popup window.
+    options.html: The HTML file that defines the structure and content of the extension’s setttings window.
+    Location: The html files folder is located in the root and contains all HTML files used in the extension’s UI.
+
+manifest File:
+
+    manifest.json: Defines the metadata for the extension, such as its name, version, permissions, and the background or content scripts.
+    Location: The manifest.json file is located at the root of the project and is essential for the extension’s setup.

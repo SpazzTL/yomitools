@@ -1,15 +1,37 @@
-// Dark Mode INIT
+
+// Sets default theme
 // Only if not yet set to preference
-browser.storage.local.get(['theme'])
-    .then(data => {
-        // console.log("Found a theme")
-        browser.storage.local.set({ theme: 'light' });
-});
+
+// _getSetting('theme').then(theme => {
+//     if (theme) {
+//         return
+//     } else {
+//         _setSetting('theme', 'light')
+//     }
+// });
 
 
+ //Cant use import in background script
+        // Functions 
+
+        function _getSetting(subSetting) {
+            return browser.storage.local.get('userSettings').then(result => {
+                const settings = result.userSettings || {}; // Safeguard if userSettings does not exist.
+                return settings[subSetting] || null; // Return null if subSetting doesn't exist.
+            });
+        }
+        
+        function _setSetting(subSetting, value) {
+            return browser.storage.local.get('userSettings').then(result => {
+                let settings = result.userSettings || {}; // Safeguard if userSettings doesn't exist
+                settings[subSetting] = value; // Update the specific subsetting
+                return browser.storage.local.set({ userSettings: settings }); // Save updated settings
+            });
+        }
 
 //Anki Connect Sender...
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    
     if (message.action === "invoke") {
         const url = "http://127.0.0.1:8765";
         const body = JSON.stringify({
@@ -42,4 +64,8 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
         return true; // Keep the message channel open for async response
     }
+
+
+
+       
 });

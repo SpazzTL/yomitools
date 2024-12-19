@@ -1,4 +1,15 @@
 import { AnkiConnect } from "./comm/ankiconnect.js";
+
+
+
+// Gave up on import
+function _getSetting(subSetting) {
+    return browser.storage.local.get('userSettings').then(result => {
+        const settings = result.userSettings || {}; // Safeguard if userSettings does not exist.
+        return settings[subSetting] || null; // Return null if subSetting doesn't exist.
+    });
+}
+
 const anki = new AnkiConnect()
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -6,15 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
     //console.log("DOM fully loaded");
 
     // Apply theme
-    browser.storage.local.get(['theme'])
-        .then(data => {
-            //console.log("Theme found as:", data.theme);
-            if (data.theme === 'dark') {
-                document.body.setAttribute('data-theme', 'dark');
-            } else {
-                document.body.setAttribute('data-theme', 'light');
-            }
-        })
+    _getSetting('theme').then(theme => {
+        if (theme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+        } else {
+            document.body.setAttribute('data-theme', 'light');
+        }
+    })
     .catch(err => console.error('Error loading theme:', err)); //Logging doesn't seem to work, more of a hope
 
     // Settings Button

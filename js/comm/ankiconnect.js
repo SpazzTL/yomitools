@@ -1,5 +1,5 @@
 //Class that holds all relevant AnkiConnect Methods
-
+import { getSetting } from '../core/utils';
 
 export class AnkiConnect {
     constructor() {
@@ -14,6 +14,14 @@ export class AnkiConnect {
  */
     async isConnected() {
         try {
+
+        // Await the result from getSetting and check if 'ankiEnabled' is true
+        const result = await getSetting('ankiEnabled');
+        // If 'ankiEnabled' is false, exit the function early
+        if (result === false) {
+            console.log("anki disabled")
+            return;
+        }
             await this._getVersion();
             return true;
         } catch (e) {
