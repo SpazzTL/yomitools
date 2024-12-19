@@ -9,7 +9,8 @@
 
 
   "background": {
-    "scripts": ["../js/background.js"]
+    "scripts": ["../js/background.js"],
+    "type": "module"
   },
 
   "action": {

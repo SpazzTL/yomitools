@@ -1,5 +1,5 @@
 //Class that holds all relevant AnkiConnect Methods
-import { getSetting } from '../core/utils';
+import { getSetting } from '../core/utils.js';
 
 export class AnkiConnect {
     constructor() {

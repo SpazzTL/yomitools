@@ -1,23 +1,13 @@
-import { AnkiConnect } from "./comm/ankiconnect.js";
-
-
-
-// Gave up on import
-function _getSetting(subSetting) {
-    return browser.storage.local.get('userSettings').then(result => {
-        const settings = result.userSettings || {}; // Safeguard if userSettings does not exist.
-        return settings[subSetting] || null; // Return null if subSetting doesn't exist.
-    });
-}
+import { getSetting } from './core/utils.js';
+import { AnkiConnect } from './comm/ankiconnect.js';
 
 const anki = new AnkiConnect()
 
 document.addEventListener('DOMContentLoaded', () => {
-   
     //console.log("DOM fully loaded");
 
     // Apply theme
-    _getSetting('theme').then(theme => {
+    getSetting('theme').then(theme => {
         if (theme === 'dark') {
             document.body.setAttribute('data-theme', 'dark');
         } else {
@@ -51,5 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Failed to check Anki connection:', error);
         ankiStatusElement.textContent = "Error checking Anki connection!";
     });
+
+    
+    
 });
 

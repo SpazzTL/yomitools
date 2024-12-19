@@ -1,33 +1,42 @@
-
-// Sets default theme
-// Only if not yet set to preference
-
-// _getSetting('theme').then(theme => {
-//     if (theme) {
-//         return
-//     } else {
-//         _setSetting('theme', 'light')
-//     }
-// });
+import { getAllUserSettings, getSetting, setSetting, setDefaultUserSettings} from "./core/utils.js";
 
 
- //Cant use import in background script
-        // Functions 
 
-        function _getSetting(subSetting) {
-            return browser.storage.local.get('userSettings').then(result => {
-                const settings = result.userSettings || {}; // Safeguard if userSettings does not exist.
-                return settings[subSetting] || null; // Return null if subSetting doesn't exist.
+// Initialize Settings
+
+getAllUserSettings().then(settings => {
+    if (Object.keys(settings).length === 0) {
+        console.log("Settings not INIT");
+        setDefaultUserSettings()
+            .then(defaultSettings => {
+                //console.log("Default settings initialized as:", defaultSettings);
+
+            })
+            .then(updatedSettings => {
+                //console.log("Updated settings are:", updatedSettings);
+            })
+            .catch(error => {
+                //console.error("Failed to initialize settings:", error);
             });
-        }
-        
-        function _setSetting(subSetting, value) {
-            return browser.storage.local.get('userSettings').then(result => {
-                let settings = result.userSettings || {}; // Safeguard if userSettings doesn't exist
-                settings[subSetting] = value; // Update the specific subsetting
-                return browser.storage.local.set({ userSettings: settings }); // Save updated settings
-            });
-        }
+    } else {
+
+       // console.log("Settings retrieved as:", settings);
+    }
+});
+
+
+
+
+
+getSetting('theme').then(theme => {
+    if (theme) {
+        return
+    } else {
+        setSetting('theme', 'light')
+    }
+});
+
+
 
 //Anki Connect Sender...
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {

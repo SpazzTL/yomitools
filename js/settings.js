@@ -1,16 +1,18 @@
+import { getSetting } from './core/utils.js';
+import { setSetting } from './core/utils.js';
+import { getAllUserSettings } from './core/utils.js';
+
 document.addEventListener('DOMContentLoaded', () => {
+   
     // console.log("Loaded Settings Script")
 
     // DOM Elements
     const darkModeSwitch = document.getElementById("dark-mode-switch");
     const ankiEnabledSwitch = document.getElementById("ankiconnect-enabled-switch")
-  
+    const settingsExportButton = document.getElementById("export-settings-button")
+    const settingsImportButton = document.getElementById("import-settings-button")
 // BUTTONS || LOCAL STORAGE
-//Store Settings here, as one Bulk Object
-const settings = {
-    ankiEnabled : 'true',
-    theme : 'light'
-}
+
     // --- Dark Mode Toggle ---
   darkModeSwitch.addEventListener('change', () => {
     // console.log("Click Event Found")
@@ -31,9 +33,22 @@ const settings = {
         }
         
     });
+    //Export Settings as JSON
+    settingsExportButton.addEventListener('click', () => {
+        //Fetch Settings
+        const settings = getAllUserSettings().then( settings => {
+            console.log("Settings exported as ", settings)
+        });
+        
+    });
+    settingsImportButton.addEventListener('click', () => {
+
+    });
+
+// END BUTTONS
 
 // --- Set Dark Mode Toggle to Checked/UnChecked --- || // Apply Theme as well
-getSetting('theme').then(theme => {
+    getSetting('theme').then(theme => {
     if (theme === 'dark') {
         darkModeSwitch.checked = true;
         document.body.setAttribute('data-theme', 'dark');
@@ -41,7 +56,7 @@ getSetting('theme').then(theme => {
         darkModeSwitch.checked = false;
         document.body.setAttribute('data-theme', 'light');
     }
-});
+    });
 
     
     //Collapsible
@@ -60,21 +75,7 @@ getSetting('theme').then(theme => {
 
 
 
-    // Functions 
+    
 
-    function getSetting(subSetting) {
-        return browser.storage.local.get('userSettings').then(result => {
-            const settings = result.userSettings || {}; // Safeguard if userSettings does not exist.
-            return settings[subSetting] || null; // Return null if subSetting doesn't exist.
-        });
-    }
-    
-    function setSetting(subSetting, value) {
-        return browser.storage.local.get('userSettings').then(result => {
-            let settings = result.userSettings || {}; // Safeguard if userSettings doesn't exist
-            settings[subSetting] = value; // Update the specific subsetting
-            return browser.storage.local.set({ userSettings: settings }); // Save updated settings
-        });
-    }
-    
+  
 });
